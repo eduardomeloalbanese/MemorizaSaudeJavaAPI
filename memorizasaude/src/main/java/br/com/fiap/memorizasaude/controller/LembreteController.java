@@ -36,6 +36,13 @@ public class LembreteController {
         return ResponseEntity.ok(lembrete);
     }
 
+  
+    @PutMapping("/{id}")
+    public ResponseEntity<Lembrete> update(@PathVariable Long id, @RequestBody Lembrete lembrete) {
+        Lembrete lembreteAtualizado = lembreteService.update(id, lembrete);
+        return ResponseEntity.ok(lembreteAtualizado);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         lembreteService.delete(id);
